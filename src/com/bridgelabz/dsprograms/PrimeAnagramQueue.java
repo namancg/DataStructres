@@ -1,8 +1,14 @@
 package com.bridgelabz.dsprograms;
 import java.util.Arrays;
+
 import com.bridgelabz.linkedlists.*;
-import com.bridgelabz.stacksandqueues.Queue;
+import com.bridgelabz.stackandqueueproblem.INode;
+import com.bridgelabz.stackandqueueproblem.MyQueue;
 public class PrimeAnagramQueue {
+	 public static void main(String args[]) 
+	   {
+		   primeAnagram();
+	   }
 	private static boolean checkingPrime(int num) {
 
 		int count=0;
@@ -35,10 +41,10 @@ public class PrimeAnagramQueue {
 		}
 		return true;
 	}
-private static void primeAnagram() {
+   private static void primeAnagram() {
 		
-		Queue myQueue = new Queue();
-		INode<String> myNode;
+		MyQueue myQueue = new MyQueue();
+		Node<String> myNode;
 		int array[][] = new int [10][100];
 		int prime[] = new int [1000];
 		int temp = 1;
@@ -68,14 +74,15 @@ private static void primeAnagram() {
 					String string1 = Integer.toString(prime[i]);
 					String string2 = Integer.toString(prime[j]);
 					if(checkAnagram(string1,string2)) {
-						myNode = new LinkedList<String>("{"+string1+", "+string2+"}");
-						myQueue.enqueue(myNode);
+						myNode = new Node("{"+string1+", "+string2+"}");
+						myQueue.enQueue((INode) myNode);
 					}
 				}
 			}
 		}
 		
-		myQueue.printQueue();
+		myQueue.printMyNodes();
 		
 	}
+  
 }
