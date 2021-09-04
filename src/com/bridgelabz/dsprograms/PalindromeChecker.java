@@ -1,6 +1,6 @@
 package com.bridgelabz.dsprograms;
 import java.util.Scanner;
-import com.bridgelabz.linkedlists.*;
+import com.bridgelabz.stackandqueueproblem.*;
 public class PalindromeChecker {
 
 	public static void main(String[] args) {
@@ -15,12 +15,14 @@ public class PalindromeChecker {
 	}
 	public static boolean isPalindrome(String string) {
 		MyQueue<Character> queue = new MyQueue();
+		Node<Character> newNode;
 		for(int i=0;i < string.length();i++) {
-			queue.enqueue(string.charAt(i));
+			newNode = new Node<Character>((Character)string.charAt(i));
+			queue.enQueue(newNode);
 		}
 		StringBuilder builder = new StringBuilder();
 		for(int i=0;i<string.length();i++) {
-			builder.append((queue.removeRear()));
+			builder.append((queue.dequeue()));
 		}
 		String result = builder.toString();
 		return result.equals(string);
